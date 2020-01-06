@@ -1,0 +1,1597 @@
+<!-- Large mobile banner. Must be used with "Large banner limit and switch" mixin -->
+<style>
+#mw-mf-page-center {
+    background-color: #fff;
+}
+
+.banner-container {
+    max-width: none;
+}
+
+/* Resets */
+.frb * {
+    margin: 0;
+    padding: 0;
+}
+
+/* Box-sizing */
+.frb,
+.frb *,
+.frb *:before,
+.frb *:after,
+.frb-nag {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.frb input[type="radio"],
+.frb input[type="text"],
+.frb input[type="email"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.frb input[type="radio"]:focus,
+.frb input[type="text"]:focus,
+.frb-radio:focus + .frb-label,
+.frb-submit:focus,
+.frb-rml-email:focus,
+.frb-submit-rml:focus,
+.frb-label:focus {
+    outline: 0;
+}
+
+.frb-ptf-checkbox,
+.frb input[type="radio"],
+.frb-visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    height: 1px;
+    width: 1px;
+    border: 0;
+    padding: 0;
+}
+
+/* Font sizes and line heights */
+.frb-options,
+.frb-footer {
+    font-size: 12px;
+}
+
+.frb-footer {
+    line-height: 1.5;
+}
+
+.frb,
+.frb input,
+.frb-form button {
+    font-size: 17px;
+    line-height: 1;
+}
+
+.frb-ptf {
+    font-size: 16px;
+}
+
+.frb-message,
+.frb-ptf,
+.frb-error {
+    line-height: 1.3529411765; /*23px @17px*/
+}
+
+/* Styles */
+/* Hide banner when Wikipedia site search is enabled */
+.overlay-enabled .frb {
+    display: none !important;
+}
+
+.frb-main {
+    background-color: #fff;
+}
+
+.frb-top {
+    font-family: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Lato', 'Helvetica', 'Arial', sans-serif;
+}
+
+.frb-footer {
+    display: none;
+    margin: 0 14px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #54595d;
+}
+
+.frb-footer a {
+    color: #54595d;
+    text-decoration: underline;
+}
+
+.frb-footer a:hover {
+    color: #000;
+}
+
+.frb-separator {
+    display: block;
+    border: none;
+    margin-top: 16px;
+    height: 1px;
+    background-color: #eaecf0; /*same border as #page-actions*/
+}
+
+.frb-header-inside,
+.frb-conversation,
+.frb-footer,
+.frb-separator {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+@media screen and (min-width: 720px) {
+    .frb-header-inside,
+    .frb-conversation,
+    .frb-footer,
+    .frb-separator {
+        max-width: 993px;
+        margin-left: 53.6px;
+        margin-right: 53.6px;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .frb-header-inside,
+    .frb-conversation,
+    .frb-footer,
+    .frb-separator {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.frb-message {
+    position: relative;
+    clear: both;
+    margin-bottom: 12px;
+    padding: 10px 18px;
+    background-color: #313131;
+    color: #FFF;
+    border-radius: 1.5em;
+    font-size: 16px;
+    line-height: 1.5; /* 24px @16px */
+}
+
+.frb-message.frb-cta {
+    color: #ad0000;
+}
+
+@media all and (min-width: 720px) {
+    .frb-message {
+        padding: 12px 20px;
+        font-size: 17px;
+        line-height: 1.5294117647; /*26px @17px*/
+    }
+}
+
+.frb-greeting {
+    display: block;
+    padding-bottom: 12px;
+}
+
+.frb-greeting svg {
+    vertical-align: top;
+}
+
+.frb-message--typing {
+    max-width: 82px;
+    padding: 6px 20px 8px;
+}
+
+.is-hidden {
+    display: none;
+}
+
+/* Typing indicator */
+@keyframes blink {
+    50% {
+        fill: #a2a9b1;
+    }
+}
+.type-indicator__circle {
+    fill: #c8ccd1;
+}
+.type-indicator__circle {
+    animation: 1s blink infinite;
+}
+.type-indicator__circle:nth-child(2) {
+    animation-delay: 250ms;
+}
+.type-indicator__circle:nth-child(3) {
+    animation-delay: 500ms;
+}
+
+.form-monthly .no-monthly {
+    opacity: 0.4 !important;
+}
+
+.form-monthly .no-monthly .frb-label {
+    cursor: default;
+}
+
+/* 4px tweak to visually align buttons with chat bubbles*/
+.frb-buttons-wrapper {
+    display: table;
+    margin: 0 0 0 -4px;
+    width: calc(100% + 8px);
+}
+
+.frb-button {
+    display: table;
+    float: left;
+    padding: 4px;
+    cursor: pointer;
+}
+
+body.rtl .frb-button {
+    float: right;
+}
+
+.frb-payment-options {
+    display: table;
+    table-layout: fixed;
+}
+
+body .frb-methods .frb-button {
+    display: table-cell;
+    float: none;
+    vertical-align: top;
+}
+
+.frb-button-table {
+    display: table;
+    width: 100%;
+}
+
+.frb-frequency .frb-button {
+    width: 50%;
+}
+
+#frb-frequency-monthly:disabled + label {
+    opacity: 0.4 !important;
+    cursor: default;
+}
+
+.frb-amounts .frb-button {
+    width: 33.333333333%;
+}
+
+.frb-payment-options .frb-button {
+    width: 100%;
+}
+
+.frb-payment-options .frb-button:first-child:nth-last-child(4),
+.frb-payment-options .frb-button:first-child:nth-last-child(4) ~ .frb-button {
+    float: left;
+    width: 50%;
+}
+
+/* Other amount field */
+.frb-other-txt,
+.frb-other-input {
+    line-height: 1;
+    text-align: left;
+}
+
+.frb-other-txt {
+    font-size: 14px;
+    display: block;
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+@media all and (min-width: 375px) {
+    .frb-other-txt {
+        font-size: 16px;
+    }
+}
+
+@media all and (min-width: 720px) {
+    .frb-other-txt {
+        font-size: inherit;
+    }
+}
+
+.frb-other-input {
+    width: 100% !important;
+    border: none;
+    text-align: center !important;
+    font-weight: bold;
+    color: #36c;
+    box-shadow: 0 2px 0 0 #36c;
+    text-align: right;
+    border-radius: 0; /* Needed for iOS */
+}
+
+.frb-button--other .frb-label {
+    padding: 2px 8px 4px;
+}
+
+.frb-radio:checked + .frb-label .frb-other-input {
+    color: #fff;
+    box-shadow: 0 2px 0 0 #fff;
+}
+
+.frb-label,
+.frb-submit {
+    padding: 3px 6px 5px;
+    line-height: 1; /* 19px @19px */
+}
+
+.frb-label {
+    display: table-cell; /* To vertical align content */
+    vertical-align: middle;
+    width: 100%;
+    height: 54px;
+    color: #36c;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    border: 1px solid #a2a9b1;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: bold;
+}
+
+.frb-label:hover,
+.frb-rml-email:hover,
+.frb-submit-rml:hover {
+    background-color: #eaf3ff;
+}
+
+.frb-radio:checked + .frb-label {
+    background-color: #2a4b8d;
+    border-color: #2a4b8d;
+    color: #fff;
+    font-weight: bold;
+}
+
+.frb-radio:checked + .frb-label .frb-logo-payments--paypal path,
+.frb-radio:checked + .frb-label .frb-logo-payments--amazon path {
+    fill: #fff;
+}
+
+.frb-ptf-checkbox:focus + .frb-ptf-label .frb-ptf-img {
+    box-shadow: inset 0 0 0 2px #36c;
+}
+
+.frb-radio:focus:checked + .frb-label,
+.frb-button--is-focused .frb-label,
+.frb-ptf-checkbox:focus:checked + .frb-ptf-label .frb-ptf-img {
+    border-color: #2a4b8d;
+    box-shadow: inset 0 0 0 1px #2a4b8d, inset 0 0 0 3px #fff;
+}
+
+.frb-submit:focus {
+    box-shadow: inset 0 0 0 1px #36c, inset 0 0 0 3px #fff;
+}
+
+.frb-ptf-checkbox:focus + .frb-ptf-label .frb-ptf-img {
+    border-radius: 5px;
+}
+
+.frb-radio:focus + .frb-label,
+.frb-label:focus,
+.frb-submit-rml:focus,
+.frb-rml-email:focus,
+.frb-submit {
+    border-color: #36c;
+}
+
+.frb-radio:focus + .frb-label,
+.frb-label:focus,
+.frb-rml-email:focus,
+.frb-submit-rml:focus {
+    box-shadow: inset 0 0 0 1px #36c;
+}
+
+.frb-logo-payments {
+    float: left;
+    width: 100%;
+    height: 100%;
+    max-height: 34px;
+    margin-top: -3px; /* Visual tweak */
+}
+
+.frb-logo-payments--paypal {
+    margin-top: -3px; /* Visual tweak */
+    margin-left: 1px;
+}
+
+.frb-logo-payments--paypal-usd {
+    margin-top: 3px; /* Visual tweak */
+}
+
+.frb-form fieldset legend {
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.frb-form fieldset {
+    margin-top: 20px;
+}
+
+.frb-form fieldset.frb-haserror .error-highlight {
+    color: #ff4f4f;
+    font-weight: bold;
+}
+
+.frb-submit {
+    height: 64px;
+    display: inline-block;
+    cursor: pointer;
+    margin: 12px 0 8px;
+    width: 100%;
+    background-color: #36c;
+    border: 1px solid #36c;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease;
+}
+
+.frb-submit:hover {
+    background-color: #447ff5;
+    border-color: #447ff5;
+}
+
+.frb-submit-amount {
+    display: none;
+}
+
+.frb-submit-label-monthly {
+    display: none;
+}
+
+.frb-submit-label-now {
+    display: inline;
+}
+
+.form-monthly .frb-submit-label-monthly {
+    display: inline;
+}
+
+.form-monthly .frb-submit-label-now {
+    display: none;
+}
+
+.frb-icon-lock {
+    margin-bottom: -2px;
+    margin-right: 2px;
+}
+
+.frb-icon-lock path {
+    fill: #fff;
+}
+
+/* Remind me later (RML) */
+.frb-options {
+    margin: 0 4px;
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.frb-rml-link {
+    display: block;
+    margin: 8px auto 0 auto;
+    padding: 16px;
+    color: #36c;
+    transition: color 0.2s ease;
+    font-size: 14px;
+    line-height: 1.1428571429; /*16px @14px*/
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.frb-rml-link:hover {
+    text-decoration: underline;
+}
+
+.frb-rml-disabled .js-rml {
+    display: none;
+}
+
+.frb-rml-email,
+.frb-submit-rml {
+    height: 54px;
+    padding: 16px 18px;
+}
+
+.frb-rml-email {
+    margin: 4px 0 0 0;
+    width: 100%;
+    color: #000;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    border: 1px solid #a2a9b1;
+    box-shadow: none;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.frb-rml-email.frb-haserror {
+    border-color: #d33;
+    box-shadow: inset 0 0 0 1px #d33;
+}
+
+.frb-submit-rml {
+    display: block;
+    margin: 8px auto;
+    min-width: 200px;
+    cursor: pointer;
+    color: #36c;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    border: 1px solid #a2a9b1;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+/* -- Credit card logos -- */
+
+/* Countries with 4 card types */
+.frb-cc-logo-wrapper {
+    display: block;
+    margin: 0 auto;
+    width: 70px;
+    font-size: 0; /* Remove spacing between icons */
+}
+
+.frb-pm-cc svg {
+    width: 30px;
+    margin: 2px;
+    display: none;
+}
+
+/* Countries with 3 card types */
+.frb-cctypes-vma .frb-cc-logo-wrapper {
+    width: 100%;
+}
+.frb-cctypes-vma svg  {
+    width: 30%;
+    max-height: 34px;
+}
+
+.frb-cctypes-vmad .frb-cc-logo-wrapper,
+.frb-cctypes-vmaj .frb-cc-logo-wrapper,
+.frb-cctypes-vma  .frb-cc-logo-wrapper,
+.frb-cctypes-vm   .frb-cc-logo-wrapper {
+    display: block;
+}
+
+.frb-cctypes-vmad .frb-pm-cc-label,
+.frb-cctypes-vmaj .frb-pm-cc-label,
+.frb-cctypes-vma  .frb-pm-cc-label,
+.frb-cctypes-vm   .frb-pm-cc-label {
+    display: none;
+}
+
+.frb-cctypes-vmad .frb-cc-logo-visa,
+.frb-cctypes-vmad .frb-cc-logo-mastercard,
+.frb-cctypes-vmad .frb-cc-logo-amex,
+.frb-cctypes-vmad .frb-cc-logo-discover,
+
+.frb-cctypes-vmaj .frb-cc-logo-visa,
+.frb-cctypes-vmaj .frb-cc-logo-mastercard,
+.frb-cctypes-vmaj .frb-cc-logo-amex,
+.frb-cctypes-vmaj .frb-cc-logo-jcb,
+
+.frb-cctypes-vma  .frb-cc-logo-visa,
+.frb-cctypes-vma  .frb-cc-logo-mastercard,
+.frb-cctypes-vma  .frb-cc-logo-amex,
+
+.frb-cctypes-vm   .frb-cc-logo-visa,
+.frb-cctypes-vm   .frb-cc-logo-mastercard {
+    display: inline-block;
+}
+
+/* -- Pay the fee -- */
+.frb-ptf {
+    margin: 12px 0 0px -2px;
+}
+
+.frb-ptf-checkbox + .frb-ptf-label .frb-ptf-img {
+    display: inline-block;
+    margin-bottom: -4px;
+    width: 32px;
+    height: 32px;
+    background-image: url('https://upload.wikimedia.org/wikipedia/donate/b/b7/Frb-checkbox-ooui.png');
+    background-size: 64px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+.frb-ptf-checkbox:checked + .frb-ptf-label .frb-ptf-img {
+    background-position: -32px 0;
+}
+
+.frb-ptf-label {
+    display: table;
+    cursor: pointer;
+}
+
+.frb-ptf-cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.frb-ptf-cell:first-child {
+    padding-left: 2px;
+}
+
+body.rtl .frb-ptf-cell:first-child {
+    padding-left: 8px;
+}
+
+.frb-ptf-cell:nth-child(2) {
+    padding-left: 14px;
+}
+
+/* --- Header --- */
+
+.frb-header {
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+/* The sticky class is added to the toolbar with JS when it reaches its scroll position */
+.frb-header--sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid #c8ccd1;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.frb-header-inside {
+    display: flex;
+    margin: 0 auto;
+    padding: 0 8px; /*padding needed to make focus outlines visible at edges*/
+    width: 100%;
+    min-height: 42px;
+    height: 1px; /*needed for FF*/
+}
+
+.frb-header-action {
+    flex: 1 0 0;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1;
+    font-weight: normal;
+    color: #36c;
+    border-right: 1px solid #a2a9b1;
+}
+.frb-header-action:hover {
+    text-decoration: underline;
+}
+
+@media all and (min-width: 375px) {
+    .frb-header-action {
+        font-size: 14px;
+    }
+}
+
+.frb-header-action:last-child {
+    border-right: none;
+}
+
+.frb-header-action--donate {
+    font-weight: bold;
+}
+
+.frb-header-action:hover span {
+    text-decoration: underline;
+}
+
+/* Error messages */
+.frb-error {
+    display: none;
+    margin: 8px 0;
+    color: #d33;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* Opt-in */
+.frb-optin .frb-button {
+    width: 50%;
+}
+
+.frb-message--optin {
+    margin-top: 8px;
+}
+
+.frb-optin-no-prompt__yes {
+    display: none;
+}
+
+.frb-optin-no-prompt__no {
+    display: block;
+}
+
+.frb-optin-no-prompt.is-positive .frb-optin-no-prompt__yes {
+    display: block;
+}
+
+.frb-optin-no-prompt.is-positive .frb-optin-no-prompt__no {
+    display: none;
+}
+
+.frb-optin-legal {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.3;
+    font-weight: normal;
+    color: #54595d;
+}
+.frb-optin-legal a {
+    color: #54595d;
+    text-decoration: underline;
+}
+.frb-optin-legal a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+
+.frb-cta {
+    margin-top: 8px;
+    background-color: #ffc9c9;
+    color: #b32424;
+}
+
+/* UPSELL */
+
+.frb-upsell,
+.frb-monthly-diff-amt .frb-amt-monthly,
+.frb-upsell-ty {
+    width: calc(100% + 8px) !important;
+    transition: background-color 0.5s ease;
+    padding: 10px 4px;
+    text-align: center;
+}
+
+.frb-upsell { padding-top: 40px; }
+
+.frb-monthly-diff-amt .frb-amt-monthly {
+    display: block;
+    padding: 0 4px 10px 4px;
+}
+
+.frb-upsell-cta,
+.frb-upsell-ty {
+    font-size: 17px;
+    line-height: 1.3;
+    font-weight: bold;
+    text-align: center;
+}
+
+.frb-upsell-color,
+.frb-monthly-diff-amt .frb-amt-monthly label {
+    display: block;
+    font-size: 15px;
+    line-height: 1.3;
+    font-weight: normal;
+    padding: 0 5%;
+    margin: .5em 0;
+}
+
+.frb .frb-monthly-diff-amt-link {
+    display: block;
+    font-size: 15px;
+    line-height: 1.3;
+    color: #36c;
+    margin: 8px auto;
+    padding: 12px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+}
+.frb .frb-monthly-diff-amt-link:hover {
+    text-decoration: underline;
+}
+
+.frb-back-step, .frb-back {
+    display: none;
+    position: absolute;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.frb-monthly-diff-amt { display: none; }
+
+#frb-amt-monthly-other-input {
+    position: relative;
+    width: 30%;
+    height: 54px;
+    padding: 16px 18px;
+    text-align: center;
+    font-size: 18px;
+    color: #000;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    border: 1px solid #a2a9b1;
+    box-shadow: none;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+    font-weight: normal;
+}
+#frb-amt-monthly-other-input:hover {
+    background-color: #eaf3ff;
+}
+
+/* Overlay */
+.frb-mask {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.8;
+    touch-action: none;
+}
+
+.frb-step-upsell {
+    position: fixed;
+    z-index: 1001;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 90%;
+    max-width: 800px;
+    margin: 5% auto;
+    padding: 5%;
+    color: #000;
+    background: #fff;
+}
+</style>
+
+<div class="frb frb-top" id="{{{banner}}}" style="display: none;"><!-- hidden by default until have checked the cookies -->
+    <h1 class="frb-visually-hidden">Fundraising banner</h1>
+    <div class="frb-main">
+        <aside class="frb-header">
+            <h2 class="frb-visually-hidden">Fundraising banner navigation</h2>
+            <div class="frb-header-inside">
+                <button class="frb-header-action frb-header-action--donate js-donate">
+                    {{{FR2015_translations,donate-now}}}
+                </button>
+                <button class="frb-header-action js-close">
+                    {{{FR2015_translations,no-thanks}}}
+                </button>
+            </div>
+        </aside>
+        <div class="frb-conversation">
+            <h2 class="frb-visually-hidden">Fundraising banner message</h2>
+            <p class="frb-message frb-message--standard">
+                <span class="frb-greeting">
+                    <svg class="frb-message-icon" role="img" aria-labelledby="frb-message-icon-title" width="20" height="20" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><title id="frb-message-icon-title">Info icon</title><g fill-rule="nonzero" fill="none"><circle fill="#FEFD34" cx="10.492" cy="14.492" r="10.492"></circle><path d="M12.681 11.754l-2.267 7.864c-.125.45-.188.745-.188.885 0 .08.033.156.1.226.066.07.136.105.21.105.125 0 .25-.055.376-.165.332-.273.73-.767 1.194-1.482l.376.22c-1.113 1.94-2.296 2.91-3.55 2.91-.48 0-.86-.135-1.144-.404a1.349 1.349 0 0 1-.426-1.023c0-.273.062-.62.188-1.04l1.537-5.286c.147-.51.221-.892.221-1.15a.566.566 0 0 0-.21-.432c-.14-.125-.332-.188-.575-.188-.11 0-.243.004-.398.011l.144-.442 3.749-.609h.663zm-.685-5.087c.457 0 .842.159 1.156.475.313.318.47.701.47 1.15 0 .45-.16.834-.476 1.15-.317.318-.7.476-1.15.476-.443 0-.822-.158-1.14-.475a1.566 1.566 0 0 1-.475-1.15c0-.45.157-.833.47-1.15a1.549 1.549 0 0 1 1.145-.476z" fill="#000"></path></g></svg>
+                    To all our readers in <span class="frb-replace-countryname">COUNTRY</span>,
+                </span>
+                We'll get straight to the point: This <span class="frb-replace-dayofweek"></span> we ask you to defend Wikipedia's independence. Our 2019 fundraiser is coming to a close and 98% of our readers don't give; they simply look the other way.
+            </p>
+            <p class="frb-message frb-message--standard">
+                It's a little awkward for us to bother you, as we're sure you are busy. And perhaps you are an exceptional reader who has already donated, in which case we sincerely thank you. Our message this <span class="frb-replace-dayofweek"></span> is simple: if everyone donated %MINIMUM%, we could keep Wikipedia thriving for years to come. The price of a coffee is all we need. 
+            </p>
+            <p class="frb-message frb-message--standard">
+                People told us we'd regret making Wikipedia a non-profit. But Wikipedia is a place to learn, not a place for advertising. It unites all of us who love knowledge: contributors, readers and the donors who keep us thriving.
+            </p>
+            <p class="frb-message frb-message--standard">
+                We know most people will ignore this message. But our hope is that you'll think about how valuable it is to have access to a source of open knowledge that doesn't charge you anything and would never show you ads. Please, show the volunteers working to bring you access to reliable, neutral information that their work matters to you.  
+            </p>
+            <p class="frb-message frb-message--standard">
+                If Wikipedia provided you %MINIMUM% worth of knowledge this year, please take a minute to secure its future by making a gift to the Wikimedia Endowment. Thank you. 
+            </p>
+
+            <form id="frb-form" class="frb-form">
+                <h2 class="frb-visually-hidden">Fundraising payment form</h2>
+                <fieldset class="frb-amounts">
+                    <legend class="frb-message frb-message-amount error-highlight">
+                        {{{FR2015_translations,please-select-amount}}} (<span class="frb-replace-currencycode">USD</span>)
+                    </legend>
+                    <div class="frb-buttons-wrapper">
+                        <div class="frb-button">
+                            <input class="frb-radio frb-radio-amount" id="frb-amt-ps1" type="radio" name="amount" value="3" />
+                            <label for="frb-amt-ps1" class="frb-label">$3</label>
+                        </div>
+                        <div class="frb-button">
+                            <input class="frb-radio frb-radio-amount" id="frb-amt-ps2" type="radio" name="amount" value="5" />
+                            <label for="frb-amt-ps2" class="frb-label">$15</label>
+                        </div>
+                        <div class="frb-button">
+                            <input class="frb-radio frb-radio-amount" id="frb-amt-ps3" type="radio" name="amount" value="10" />
+                            <label for="frb-amt-ps3" class="frb-label">$20</label>
+                        </div>
+                        <div class="frb-button">
+                            <input class="frb-radio frb-radio-amount" id="frb-amt-ps4" type="radio" name="amount" value="20" />
+                            <label for="frb-amt-ps4" class="frb-label">$50</label>
+                        </div>
+                        <div class="frb-button">
+                            <input class="frb-radio frb-radio-amount" id="frb-amt-ps5" type="radio" name="amount" value="50" />
+                            <label for="frb-amt-ps5" class="frb-label">$100</label>
+                        </div>
+                        <div class="frb-button frb-button--other">
+                            <input id="frb-input-other" class="frb-radio" type="radio" name="amount" value="Other" />
+                            <label class="frb-label">
+                                <span class="frb-other-txt">{{{FR2015_translations,other}}} (<span class="frb-replace-currencysymbol">$</span>)</span>
+                                <input name="otherAmount" id="frb-amt-other-input" class="frb-other-input" type="text" inputmode="decimal" value="" tabindex="-1" dir="ltr" />
+                            </label>
+                        </div>
+                    </div>
+                    <div class="frb-ptf" style="display:none;">
+                        <input class="frb-ptf-checkbox" type="checkbox" name="ptf" id="frb-ptf-checkbox" value="true">
+                        <label class="frb-ptf-label" for="frb-ptf-checkbox">
+                            <span class="frb-ptf-cell"><span class="frb-ptf-img"></span></span>
+                            <span class="frb-ptf-cell">{{{FR2015_translations,generously-add}}}</span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <p class="frb-message frb-message--standard frb-cta">
+                    We ask you, humbly: don't scroll away.
+                </p>
+
+                <div class="frb-step-2" style="display: none;">
+
+                    <fieldset class="frb-frequency">
+                        <legend class="frb-message error-highlight">
+                            {{{FR2015_translations,how-often}}}
+                        </legend>
+                        <div class="frb-buttons-wrapper">
+                            <div class="frb-button frb-button--frequency">
+                                <input class="frb-radio" id="frb-frequency-onetime" type="radio" name="frequency" value="onetime" checked onclick="frb.toggleMonthly(false);" />
+                                <label for="frb-frequency-onetime" class="frb-label">{{{FR2015_translations,just-once}}}</label>
+                            </div>
+                            <div class="frb-button frb-button--frequency">
+                                <input class="frb-radio" id="frb-frequency-monthly" type="radio" name="frequency" value="monthly" onclick="frb.toggleMonthly(true);" />
+                                <label for="frb-frequency-monthly" class="frb-label">{{{FR2015_translations,give-monthly}}}</label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="frb-methods">
+                        <legend class="frb-message error-highlight">
+                            {{{FR2015_translations,select-payment-method-please}}} 👇
+                        </legend>
+                        <div class="frb-buttons-wrapper frb-payment-options">
+                            <div class="frb-button frb-pm-ideal no-monthly" style="display: none;">
+                                <div class="frb-button-table">
+                                <input id="frb-pm-ideal" type="radio" name="frb-methods" class="frb-radio" onclick="frb.setMethod({ method:'rtbt', submethod:'rtbt_ideal' }, 'no-monthly');" />
+                                <label for="frb-pm-ideal" class="frb-label">iDEAL</label>
+                                </div>
+                            </div>
+                            <div class="frb-button frb-pm-cc">
+                                <div class="frb-button-table">
+                                    <input id="frb-pm-cc" type="radio" name="frb-methods" class="frb-radio" />
+                                    <label for="frb-pm-cc" class="frb-label" onclick="frb.setMethod({ method:'cc' }); ">
+                                        <span class="frb-pm-cc-label">{{{FR2015_translations,pm-creditcard}}}</span>
+                                        <span class="frb-cc-logo-wrapper">
+                                            <svg class="frb-cc-logo-visa" xmlns="http://www.w3.org/2000/svg" aria-labelledby="frb-cc-logo-visa-title" viewBox="0 0 200 120"><title id="frb-cc-logo-visa-title">Visa</title><path fill="#FFFFFF" d="M7.7 0h184.6c4.2 0 7.7 3.3 7.7 7.5v105c0 4.1-3.4 7.5-7.7 7.5H7.7c-4.2 0-7.7-3.3-7.7-7.5V7.5C0 3.3 3.4 0 7.7 0z"/><path fill="#F7B600" d="M0 98v14.3c0 4.2 3.4 7.7 7.7 7.7h184.6c4.2 0 7.7-3.4 7.7-7.7V98H0z"/><path fill="#1A1F71" d="M200 22V7.7c0-4.2-3.4-7.7-7.7-7.7H7.7C3.4 0 0 3.4 0 7.7V22h200zM81.9 36.9L62.3 83.4H49.4l-9.6-37.2c-.6-2.3-1.1-3.1-2.8-4.1-3.8-1.8-7.8-3.1-12-3.9l.2-1.4h20.6c2.8 0 5.1 2 5.6 4.8l5.1 26.9 12.6-31.7h12.8zm50.3 31.3c0-12.3-17-13-16.9-18.4 0-1.7 1.6-3.4 5.2-3.9 4.1-.4 8.2.3 12 2.1l2.1-9.8c-3.6-1.4-7.5-2.1-11.4-2.1-12 0-20.4 6.4-20.5 15.3-.1 6.8 6 10.4 10.6 12.6s6.3 3.8 6.3 5.8c0 3.1-3.8 4.5-7.3 4.5-4.3.1-8.6-.9-12.5-2.9l-2.2 10.2c4.3 1.7 8.9 2.5 13.5 2.5 12.7 0 20.9-6.2 21.1-15.9m31.6 15.2H175l-9.8-46.5h-10.4c-2.3 0-4.3 1.3-5.2 3.4l-18.3 43.1H144l2.5-7h15.6l1.7 7zm-13.6-16.5l6.4-17.4 3.7 17.4h-10.1zm-51-30l-10 46.5H77.1l10-46.5h12.1z"/></svg>
+                                            <svg class="frb-cc-logo-mastercard" xmlns="http://www.w3.org/2000/svg" aria-labelledby="frb-cc-logo-mastercard-title" viewBox="0 0 200 120"><title id="frb-cc-logo-mastercard-title">MasterCard</title><path d="M192.3 120H7.7c-4.2 0-7.7-3.4-7.7-7.5V7.5C0 3.4 3.5 0 7.7 0h184.6c4.2 0 7.7 3.4 7.7 7.5v105c0 4.1-3.5 7.5-7.7 7.5z"/><g id="Layer_1-2"><path id="_Compound_Path_" fill="#FFFFFF" d="M61.9 106.5v-6.2c.2-2-1.3-3.7-3.3-3.9h-.5c-1.4-.1-2.7.6-3.5 1.8-.7-1.1-1.9-1.8-3.3-1.8-1.2-.1-2.3.5-3 1.5v-1.2h-2v9.9h2v-5.7c-.1-1.3.8-2.5 2.1-2.6h.4c1.4 0 2.2.9 2.2 2.6v5.7h2v-5.7c-.1-1.3.8-2.5 2.1-2.6h.4c1.5 0 2.2.9 2.2 2.6v5.7l2.2-.1zm32.1-10h-3.6v-3h-2v3h-2.1v1.8h2.1v4.7c0 2.3.8 3.7 3.3 3.7.9 0 1.9-.3 2.7-.8l-.6-1.8c-.6.3-1.2.5-1.9.6-1 0-1.5-.7-1.5-1.7v-4.8H94v-1.7zm18.3-.2c-1.1 0-2.1.5-2.7 1.5v-1.2h-2v9.9h2v-5.6c0-1.6.8-2.7 2.2-2.7.5 0 .9.1 1.3.2l.7-1.9c-.5-.1-1-.2-1.5-.2zm-27.7 1c-1.2-.7-2.6-1.1-4-1-2.5 0-4 1.2-4 3.1 0 1.6 1.1 2.6 3.3 2.9l1 .1c1.2.2 1.8.6 1.8 1.1 0 .8-.9 1.3-2.3 1.3-1.2 0-2.3-.3-3.3-1l-1 1.6c1.3.9 2.7 1.3 4.3 1.3 2.8 0 4.4-1.3 4.4-3.2 0-1.9-1.2-2.6-3.3-2.9l-1-.1c-.9-.1-1.8-.4-1.8-1s.8-1.2 2-1.2c1.1 0 2.1.3 3.1.9l.8-1.9zm29.9 4.2c-.1 2.7 2 5.1 4.7 5.2h.5c1.3.1 2.6-.4 3.5-1.2l-1-1.6c-.7.6-1.6.9-2.6.9-1.8-.2-3.2-1.8-3-3.7.2-1.6 1.4-2.9 3-3 .9 0 1.8.3 2.6.9l1-1.6c-1-.8-2.3-1.2-3.5-1.2-2.7-.1-5 2-5.2 4.7v.6zm-13.9-5.2c-2.9 0-4.9 2.1-4.9 5.2-.2 2.7 1.9 5 4.5 5.2h.5c1.5.1 2.9-.4 4-1.4l-1-1.5c-.8.7-1.8 1-2.9 1-1.5.1-2.8-1-3-2.5h7.4v-.8c.1-3.1-1.8-5.2-4.6-5.2zm0 1.8c1.4 0 2.5 1 2.6 2.4v.1h-5.3c.1-1.4 1.3-2.5 2.7-2.5zm-26.7 3.4v-4.9h-2v1.2c-.8-1-2-1.5-3.2-1.5-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2 1.2.1 2.4-.5 3.2-1.5v1.2h2v-4.9zm-7.9 0c-.1-1.7 1.1-3.2 2.8-3.4h.3c1.8.2 3.2 1.8 3 3.7-.2 1.6-1.4 2.9-3 3-1.7 0-3.1-1.4-3.1-3.1-.1 0-.1-.1 0-.2zm76.1-5.2c-1.1 0-2.1.5-2.7 1.5v-1.2h-2v9.9h2v-5.6c0-1.6.8-2.7 2.2-2.7.5 0 .9.1 1.3.2l.7-1.9c-.5-.1-1-.2-1.5-.2zm15.8 8.7c.1 0 .3 0 .4.1.1 0 .2.1.3.2.1.1.2.2.2.3.1.2.1.5 0 .8-.1.1-.1.2-.2.3-.1.1-.2.2-.3.2-.1.1-.3.1-.4.1-.4 0-.8-.2-.9-.6-.1-.2-.1-.5 0-.8.1-.1.1-.2.2-.3.1-.1.2-.2.3-.2.2 0 .3-.1.4-.1zm0 1.8c.1 0 .2 0 .3-.1.1 0 .2-.1.2-.2.3-.3.3-.7 0-1l-.2-.2c-.1 0-.2-.1-.3-.1-.1 0-.2 0-.3.1-.1 0-.2.1-.2.2-.3.3-.3.7 0 1 .1.1.2.1.2.2.1.1.2.1.3.1zm.1-1.2c.1 0 .2 0 .3.1.1.1.1.1.1.2s0 .1-.1.2-.1.1-.2.1l.3.3h-.2l-.3-.3h-.1v.3h-.2v-.9h.4zm-.2.1v.2h.3v-.2h-.3zm-23.3-4.2v-5h-2v1.2c-.8-1-2-1.5-3.2-1.5-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2 1.2.1 2.4-.5 3.2-1.5v1.2h2v-4.8zm-8 0c-.1-1.7 1.1-3.2 2.8-3.4h.3c1.8.2 3.2 1.8 3 3.7-.2 1.6-1.4 2.9-3 3-1.7 0-3.1-1.4-3.1-3.1v-.2zm27.9 0v-9h-2v5.2c-.8-1-2-1.5-3.2-1.5-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2 1.2.1 2.4-.5 3.2-1.5v1.2h2v-4.8zm-8 0c-.1-1.7 1.1-3.2 2.8-3.4h.3c1.8.3 3.1 2 2.8 3.9-.2 1.5-1.4 2.6-2.8 2.8-1.7 0-3.1-1.4-3.1-3.1-.1 0-.1-.1 0-.2z"/><g id="_Group_"><path fill="#FF5F00" d="M83.9 21h32.4v58.7H83.9z"/><path id="_Path_2" fill="#EB001B" d="M86 50.3C86 38.8 91.2 28 100.2 21c-16.1-12.7-39.4-9.9-52.1 6.3S38.2 67 54.3 79.7c13.4 10.6 32.4 10.6 45.8 0C91.2 72.6 86 61.8 86 50.3z"/><path fill="#F79E1B" d="M156.6 73.5v-1.2h.5V72h-1.2v.2h.5v1.2h.2zm2.4 0V72h-.4l-.4 1-.4-1h-.4v1.5h.3v-1.1l.4.9h.3l.4-.9v1.1h.2zm1.2-23.2c0 20.6-16.6 37.3-37.1 37.3-8.3 0-16.4-2.8-22.9-8 16.1-12.7 18.9-36.2 6.2-52.4-1.8-2.3-3.9-4.4-6.2-6.3 16.1-12.7 39.4-9.9 52.1 6.3 5.1 6.6 7.9 14.8 7.9 23.1z"/></g></g></svg>
+                                            <svg class="frb-cc-logo-amex" xmlns="http://www.w3.org/2000/svg" aria-labelledby="frb-cc-logo-amex-title" viewBox="0 0 200 120"><title id="frb-cc-logo-amex-title">Amex</title><linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="187.342" y1="3564.816" x2="13.247" y2="3503.596" gradientTransform="translate(0 -3474.102)"><stop offset="0" stop-color="#51BCEA"/><stop offset="1" stop-color="#3078BC"/></linearGradient><path fill="url(#SVGID_1_)" d="M192.3 120H7.7c-4.2 0-7.7-3.5-7.7-7.7V7.7C0 3.5 3.5 0 7.7 0h184.6c4.2 0 7.7 3.5 7.7 7.7v104.7c0 4.1-3.5 7.6-7.7 7.6z"/><path fill="#FFFFFF" d="M162.8 60.1L179 42.5h-11L157.4 54l-10.2-11.5h-33.4v35h32.9l10.6-11.6 10.2 11.6h10.8l-15.5-17.4zm-20.3 10.1H122v-7h18.2V56H122v-6.4h20.8l9.1 10.2-9.4 10.4zm-95-7.7l-5.6-13.9-5.6 13.9m74.4 15h-8.5V50.1L90.1 77.5h-7.3L70.7 50.1v27.4h-17l-3.2-7.8H33.2L30 77.5h-9l14.9-35h12.3l14.1 33.1V42.5H76l10.9 23.7 10-23.7h13.8v35z"/></svg>
+                                            <svg class="frb-cc-logo-jcb" xmlns="http://www.w3.org/2000/svg" aria-labelledby="frb-cc-logo-jcb-title" viewBox="0 0 200 120"><title id="frb-cc-logo-jcb-title">JCB</title><path fill="#FFFFFF" d="M193.1 0H7.7C3.4 0 0 3.3 0 7.5v105c0 3.9 3.1 7.1 6.9 7.5h185.4c4.3 0 7.7-3.4 7.7-7.5V7.5c0-3.9-3.1-7.1-6.9-7.5z"/><linearGradient id="path6338_1_" gradientUnits="userSpaceOnUse" x1="-227.894" y1="959.936" x2="-209.808" y2="959.936" gradientTransform="matrix(2.0492 0 0 -2.0492 590.04 2032.794)"><stop offset="0" stop-color="#007940"/><stop offset=".229" stop-color="#00873F"/><stop offset=".743" stop-color="#40A737"/><stop offset="1" stop-color="#5CB531"/></linearGradient><path id="path6338" fill="url(#path6338_1_)" d="M130.4 69.6h8.7c.2 0 .8-.1 1.1-.1 1.6-.3 3.1-1.8 3.1-3.9 0-2-1.4-3.5-3.1-3.9-.2-.1-.7-.1-1.1-.1h-8.7v8z"/><linearGradient id="path6349_1_" gradientUnits="userSpaceOnUse" x1="-227.894" y1="962.732" x2="-209.823" y2="962.732" gradientTransform="matrix(2.0492 0 0 -2.0492 590.04 2032.794)"><stop offset="0" stop-color="#007940"/><stop offset=".229" stop-color="#00873F"/><stop offset=".743" stop-color="#40A737"/><stop offset="1" stop-color="#5CB531"/></linearGradient><path id="path6349" fill="url(#path6349_1_)" d="M138.1 15c-8.2 0-15 6.7-15 15v15.6h21.2c.5 0 1.1 0 1.5.1 4.8.2 8.3 2.7 8.3 7 0 3.4-2.4 6.3-6.8 6.8v.2c4.9.3 8.6 3 8.6 7.3 0 4.5-4.1 7.5-9.6 7.5H123V105h22c8.2 0 15-6.7 15-15V15h-21.9z"/><linearGradient id="path6360_1_" gradientUnits="userSpaceOnUse" x1="-227.894" y1="965.808" x2="-209.807" y2="965.808" gradientTransform="matrix(2.0492 0 0 -2.0492 590.04 2032.794)"><stop offset="0" stop-color="#007940"/><stop offset=".229" stop-color="#00873F"/><stop offset=".743" stop-color="#40A737"/><stop offset="1" stop-color="#5CB531"/></linearGradient><path id="path6360" fill="url(#path6360_1_)" d="M142.1 53.7c0-2-1.4-3.3-3.1-3.5-.2 0-.6-.1-.8-.1h-7.8v7.3h7.8c.2 0 .7 0 .8-.1 1.7-.3 3.1-1.7 3.1-3.6z"/><linearGradient id="path6371_1_" gradientUnits="userSpaceOnUse" x1="-268.384" y1="962.752" x2="-250.018" y2="962.752" gradientTransform="matrix(2.0492 0 0 -2.0492 590.04 2032.794)"><stop offset="0" stop-color="#1F286F"/><stop offset=".475" stop-color="#004E94"/><stop offset=".826" stop-color="#0066B1"/><stop offset="1" stop-color="#006FBC"/></linearGradient><path id="path6371" fill="url(#path6371_1_)" d="M55.1 15c-8.2 0-15 6.7-15 15v37c4.2 2.1 8.6 3.4 12.9 3.4 5.2 0 8-3.1 8-7.4V45.5h12.9v17.4c0 6.8-4.2 12.3-18.5 12.3-8.7 0-15.4-1.9-15.4-1.9v31.6h22c8.2 0 15-6.7 15-15V15H55.1z"/><linearGradient id="path6384_1_" gradientUnits="userSpaceOnUse" x1="-248.235" y1="962.712" x2="-230.398" y2="962.712" gradientTransform="matrix(2.0492 0 0 -2.0492 590.04 2032.794)"><stop offset="0" stop-color="#6C2C2F"/><stop offset=".173" stop-color="#882730"/><stop offset=".573" stop-color="#BE1833"/><stop offset=".859" stop-color="#DC0436"/><stop offset="1" stop-color="#E60039"/></linearGradient><path id="path6384" fill="url(#path6384_1_)" d="M96.6 15c-8.2 0-15 6.7-15 15v19.6c3.8-3.2 10.4-5.3 21-4.8 5.7.2 11.8 1.8 11.8 1.8V53c-3.1-1.6-6.7-3-11.4-3.3-8.1-.6-12.9 3.4-12.9 10.3 0 7 4.9 11 12.9 10.3 4.7-.3 8.3-1.8 11.4-3.3v6.3s-6 1.6-11.8 1.8c-10.6.5-17.2-1.6-21-4.8V105h22c8.2 0 15-6.7 15-15V15h-22z"/></svg>
+                                            <svg class="frb-cc-logo-discover" xmlns="http://www.w3.org/2000/svg" aria-labelledby="frb-cc-logo-discover-title" viewBox="0 0 200 120"><title id="frb-cc-logo-discover-title">Discover</title><path fill="#FFFFFF" d="M192.3 120H7.7c-4.2 0-7.7-3.5-7.7-7.7V7.7C0 3.5 3.5 0 7.7 0h184.6c4.2 0 7.7 3.5 7.7 7.7v104.7c0 4.1-3.5 7.6-7.7 7.6z"/><path fill="#E77730" d="M47.5 120h144.8c4.2 0 7.7-3.5 7.7-7.7V64.6s-21.5 15.4-61.9 31C104 108.9 57 118.2 47.5 120z"/><path fill="#211E1E" d="M26.6 54.2c-1.8 1.6-4 2.3-7.6 2.3h-1.5V37.8H19c3.6 0 5.8.6 7.6 2.3 1.9 1.7 3.1 4.4 3.1 7 0 2.7-1.2 5.4-3.1 7.1m-6.5-21.3h-8.2v28.2H20c4.3 0 7.4-1 10.2-3.3 3.3-2.7 5.2-6.7 5.2-10.8 0-8.2-6.3-14.1-15.3-14.1M38 61.3h5.6V32.9H38v28.4zm19.1-17.5c-3.3-1.2-4.3-2-4.3-3.6 0-1.8 1.8-3.2 4.1-3.2 1.7 0 3 .7 4.5 2.3l2.9-3.8c-2.4-2.1-5.3-3.2-8.4-3.2-5.1 0-8.9 3.5-8.9 8.1 0 3.9 1.8 5.9 7 7.7 2.2.8 3.3 1.3 3.8 1.6 1.1.7 1.7 1.8 1.7 2.9 0 2.3-1.9 4-4.3 4-2.7 0-4.8-1.3-6.1-3.8l-3.6 3.5c2.6 3.8 5.6 5.3 9.9 5.3 5.8 0 9.8-3.8 9.8-9.2.2-4.3-1.7-6.3-8.1-8.6m10 3.3c0 8.3 6.6 14.8 15.1 14.8 2.4 0 4.5-.5 7-1.7v-6.5c-2.2 2.2-4.2 3.1-6.7 3.1-5.6 0-9.6-4.1-9.6-9.7 0-5.4 4.1-9.7 9.3-9.7 2.7 0 4.7 1 7 3.2V34c-2.4-1.2-4.5-1.8-6.9-1.8-8.4.1-15.2 6.7-15.2 14.9m66.2 4.9l-7.6-19h-6.1l12.1 29h3l12.4-29h-6l-7.8 19m16.3 9.3h15.8v-4.8h-10.2v-7.7h9.8V44h-9.8v-6.2h10.2v-4.9h-15.8M176.3 46h-1.6v-8.5h1.7c3.5 0 5.4 1.4 5.4 4.2-.1 2.7-2 4.3-5.5 4.3m11.1-4.6c0-5.2-3.7-8.3-10.1-8.3H169v28.2h5.6V49.9h.7l7.7 11.4h6.9l-9-11.9c4.2-.9 6.5-3.8 6.5-8"/><path fill="#E77731" d="M121.2 47.1c0 8.2-6.8 15-15.1 15S91 55.3 91 47.1s6.8-15 15.1-15c8.4 0 15.1 6.8 15.1 15"/><path fill="none" d="M106.3 32c-.6 0-1.2 0-1.8.1.2 0 .4 0 .6-.1.5.1.9.1 1.2 0h.8-.8M91.4 43.6c-.1.5-.2 1.1-.3 1.6 0 .2 0 .4-.1.5.1-.5.1-1 .2-1.5.1-.1.1-.3.2-.6"/></svg>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="frb-button frb-pm-bt no-monthly" style="display: none;">
+                                <div class="frb-button-table">
+                                <input id="frb-pm-bt" type="radio" name="frb-methods" class="frb-radio" onclick="frb.setMethod({ method:'bt' }, 'no-monthly');" />
+                                <label for="frb-pm-bt" class="frb-label">{{{FR2015_translations,pm-banktransfer}}}</label>
+                                </div>
+                            </div>
+                            <div class="frb-button frb-pm-cash no-monthly" style="display: none;">
+                                <div class="frb-button-table">
+                                <input id="frb-pm-cash" type="radio" name="frb-methods" class="frb-radio" onclick="frb.setMethod({ method:'cash' }, 'no-monthly');" />
+                                <label for="frb-pm-cash" class="frb-label">{{{FR2015_translations,pm-cash}}}</label>
+                                </div>
+                            </div>
+                            <div class="frb-button frb-pm-pp" onclick="frb.setMethod({ method:'paypal' });">
+                                <div class="frb-button-table">
+                                <input id="frb-pm-pp" type="radio" name="frb-methods" class="frb-radio" />
+                                <label for="frb-pm-pp" class="frb-label">
+                                    <svg class="frb-logo-payments frb-logo-payments--paypal" role="img" aria-labelledby="frb-logo-paypal-title" width="80" height="24" viewBox="0 0 80 24" xmlns="http://www.w3.org/2000/svg"><title id="frb-logo-paypal-title">{{{FR2015_translations,pm-paypal}}}</title><g fill-rule="nonzero" fill="none"><path d="M12.444 5.085H6.97a.763.763 0 0 0-.752.648L4.006 19.891c-.044.279.17.53.451.53H7.07a.762.762 0 0 0 .751-.647l.597-3.819a.762.762 0 0 1 .75-.648h1.733c3.606 0 5.686-1.76 6.23-5.248.245-1.526.01-2.724-.698-3.564-.778-.922-2.158-1.41-3.99-1.41zm.631 5.171c-.3 1.981-1.8 1.981-3.25 1.981h-.826l.579-3.7a.457.457 0 0 1 .45-.388h.379c.988 0 1.92 0 2.402.569.288.339.376.842.266 1.538zM28.803 10.193h-2.62a.458.458 0 0 0-.451.388l-.116.74-.184-.269c-.567-.83-1.832-1.108-3.095-1.108-2.896 0-5.37 2.213-5.851 5.317-.25 1.548.105 3.029.976 4.061.799.95 1.941 1.345 3.301 1.345 2.334 0 3.628-1.513 3.628-1.513l-.117.734c-.044.281.17.533.45.533h2.36a.763.763 0 0 0 .752-.648l1.416-9.05a.457.457 0 0 0-.449-.53zm-3.653 5.145c-.253 1.51-1.441 2.525-2.957 2.525-.76 0-1.37-.246-1.76-.713-.387-.464-.534-1.123-.411-1.858.236-1.497 1.444-2.544 2.937-2.544.744 0 1.35.25 1.748.72.399.475.557 1.139.443 1.87zM42.761 10.193h-2.634a.761.761 0 0 0-.63.336l-3.632 5.398-1.54-5.187a.764.764 0 0 0-.73-.547h-2.587a.46.46 0 0 0-.433.608l2.9 8.588-2.726 3.884a.46.46 0 0 0 .372.727h2.63c.25 0 .483-.123.625-.33l8.76-12.755a.46.46 0 0 0-.375-.722" fill="#283B82"/><path d="M51.48 5.085h-5.473a.762.762 0 0 0-.75.648l-2.214 14.158c-.044.279.17.53.45.53H46.3c.261 0 .485-.191.525-.453l.628-4.013a.762.762 0 0 1 .751-.648h1.732c3.606 0 5.686-1.76 6.23-5.248.246-1.526.01-2.724-.699-3.564-.777-.922-2.156-1.41-3.987-1.41zm.632 5.171c-.299 1.981-1.799 1.981-3.25 1.981h-.826l.58-3.7a.456.456 0 0 1 .45-.388h.379c.987 0 1.92 0 2.402.569.287.339.375.842.265 1.538zM67.84 10.193h-2.62a.455.455 0 0 0-.45.388l-.116.74-.184-.269c-.567-.83-1.832-1.108-3.094-1.108-2.897 0-5.37 2.213-5.851 5.317-.25 1.548.105 3.029.976 4.061.8.95 1.94 1.345 3.3 1.345 2.334 0 3.628-1.513 3.628-1.513l-.117.734c-.044.281.17.533.452.533h2.36a.762.762 0 0 0 .75-.648l1.417-9.05a.46.46 0 0 0-.452-.53zm-3.654 5.145c-.251 1.51-1.441 2.525-2.957 2.525-.76 0-1.37-.246-1.76-.713-.387-.464-.533-1.123-.41-1.858.237-1.497 1.444-2.544 2.936-2.544.744 0 1.35.25 1.748.72.4.475.56 1.139.443 1.87zM70.929 5.474L68.683 19.89c-.044.279.17.53.45.53h2.258a.761.761 0 0 0 .751-.647l2.215-14.157a.459.459 0 0 0-.45-.532H71.38a.458.458 0 0 0-.45.389" fill="#469BDB"/></g></svg>
+                                </label>
+                                </div>
+                            </div>
+                            <div class="frb-button frb-pm-bpay no-monthly" style="display: none;">
+                                <div class="frb-button-table">
+                                <input id="frb-pm-bpay" type="radio" name="frb-methods" class="frb-radio" onclick="frb.setMethod({ method:'obt', submethod:'bpay' }, 'no-monthly');" />
+                                <label for="frb-pm-bpay" class="frb-label">BPay</label>
+                                </div>
+                            </div>
+                            <div class="frb-button frb-pm-pp-usd" style="display: none;" onclick="frb.setMethod({ method:'paypal', skipValidation: true });">
+                                <div class="frb-button-table">
+                                <input id="frb-pm-pp-usd" type="radio" name="frb-methods" class="frb-radio" />
+                                <label for="frb-pm-pp-usd" class="frb-label">
+                                    <svg class="frb-logo-payments frb-logo-payments--paypal-usd" role="img" aria-labelledby="frb-logo-paypal-usd-title" width="105" height="24" viewBox="0 0 105 24" xmlns="http://www.w3.org/2000/svg"><title id="frb-logo-paypal-usd-title">{{{FR2015_translations,pm-paypal}}} (USD)</title><g fill="none" fill-rule="evenodd"><path d="M75.452 10.3c.44-.68 1.024-1.411 1.752-2.195h1.192l-.471.621a11.815 11.815 0 0 0-1.542 2.684 12.17 12.17 0 0 0-.604 2.007c-.24 1.13-.297 2.17-.172 3.12.074.563.26 1.283.56 2.163h-1.17l-.277-.538c-.185-.325-.353-.81-.504-1.452a7.683 7.683 0 0 1-.05-3.393c.214-1.013.643-2.018 1.286-3.016zm4.042-2.062h1.735l-1.07 5.023c-.118.562-.139.972-.061 1.231.11.458.514.688 1.208.688.692 0 1.189-.23 1.492-.688.188-.259.342-.669.46-1.23l1.07-5.024h1.735l-1.07 5.023c-.185.869-.464 1.545-.837 2.03-.691.886-1.744 1.33-3.16 1.33-1.416 0-2.282-.444-2.6-1.33-.166-.485-.157-1.161.028-2.03l1.07-5.023zm8.232 5.65c-.025.373.017.652.128.837.207.336.647.504 1.32.504.402 0 .739-.044 1.008-.133.514-.17.82-.486.915-.948.06-.27-.015-.478-.222-.626-.203-.144-.547-.272-1.03-.383l-.827-.194c-.81-.192-1.353-.4-1.63-.626-.47-.377-.619-.967-.449-1.769.155-.732.55-1.34 1.187-1.824.635-.484 1.469-.726 2.5-.726.861 0 1.547.228 2.057.685.51.456.687 1.119.532 1.987h-1.641c.078-.491-.06-.84-.416-1.048-.236-.136-.552-.205-.948-.205-.44 0-.81.089-1.111.266-.302.178-.485.425-.552.743-.063.292.02.51.25.654.144.097.474.21.992.339l1.336.338c.584.148 1.007.345 1.27.593.406.384.532.94.377 1.669-.16.746-.577 1.366-1.253 1.86-.677.493-1.536.74-2.578.74-1.065 0-1.85-.243-2.357-.73-.506-.485-.669-1.153-.487-2.003h1.63zm8.893-4.23l-1.13 5.333h1.574c.805 0 1.452-.397 1.94-1.192.266-.436.462-.955.588-1.558.177-.831.183-1.47.016-1.915-.166-.446-.637-.668-1.413-.668h-1.575zm3.393-1.242a2 2 0 0 1 1.17 1.037c.2.406.3.846.302 1.319.002.473-.042.924-.13 1.353-.233 1.086-.647 2.007-1.242 2.76-.806 1.017-1.826 1.525-3.06 1.525h-3.52l1.734-8.172h3.52c.504.008.912.067 1.226.178zm4.768 1.885c.218.998.22 2.003.005 3.016-.236 1.112-.733 2.243-1.49 3.393-.426.643-.801 1.127-1.126 1.452l-.505.538H100.5c.669-.88 1.16-1.6 1.475-2.162.528-.95.913-1.99 1.153-3.121a10.54 10.54 0 0 0 .25-2.007 7.927 7.927 0 0 0-.4-2.684l-.205-.62h1.192c.395.783.667 1.515.815 2.195z" fill="#000"/><g fill-rule="nonzero"><path d="M8.444 2.085H2.97a.763.763 0 0 0-.752.648L.006 16.891c-.044.279.17.53.451.53H3.07a.762.762 0 0 0 .751-.647l.597-3.819a.762.762 0 0 1 .75-.648h1.733c3.606 0 5.686-1.76 6.23-5.248.245-1.526.01-2.724-.698-3.564-.778-.922-2.158-1.41-3.99-1.41zm.631 5.171c-.3 1.981-1.8 1.981-3.25 1.981h-.826l.579-3.7a.457.457 0 0 1 .45-.388h.379c.988 0 1.92 0 2.402.569.288.339.376.842.266 1.538zM24.803 7.193h-2.62a.458.458 0 0 0-.451.388l-.116.74-.184-.269c-.567-.83-1.832-1.108-3.095-1.108-2.896 0-5.37 2.213-5.851 5.317-.25 1.548.105 3.029.976 4.061.799.95 1.941 1.345 3.301 1.345 2.334 0 3.628-1.513 3.628-1.513l-.117.734c-.044.281.17.533.45.533h2.36a.763.763 0 0 0 .752-.648l1.416-9.05a.457.457 0 0 0-.449-.53zm-3.653 5.145c-.253 1.51-1.441 2.525-2.957 2.525-.76 0-1.37-.246-1.76-.713-.387-.464-.534-1.123-.411-1.858.236-1.497 1.444-2.544 2.937-2.544.744 0 1.35.25 1.748.72.399.475.557 1.139.443 1.87zM38.761 7.193h-2.634a.761.761 0 0 0-.63.336l-3.632 5.398-1.54-5.187a.764.764 0 0 0-.73-.547h-2.587a.46.46 0 0 0-.433.608l2.9 8.588-2.726 3.884a.46.46 0 0 0 .372.727h2.63c.25 0 .483-.123.625-.33l8.76-12.755a.46.46 0 0 0-.375-.722" fill="#283B82"/><path d="M47.48 2.085h-5.473a.762.762 0 0 0-.75.648l-2.214 14.158c-.044.279.17.53.45.53H42.3c.261 0 .485-.191.525-.453l.628-4.013a.762.762 0 0 1 .751-.648h1.732c3.606 0 5.686-1.76 6.23-5.248.246-1.526.01-2.724-.699-3.564-.777-.922-2.156-1.41-3.987-1.41zm.632 5.171c-.299 1.981-1.799 1.981-3.25 1.981h-.826l.58-3.7a.456.456 0 0 1 .45-.388h.379c.987 0 1.92 0 2.402.569.287.339.375.842.265 1.538zM63.84 7.193h-2.62a.455.455 0 0 0-.45.388l-.116.74-.184-.269c-.567-.83-1.832-1.108-3.094-1.108-2.897 0-5.37 2.213-5.851 5.317-.25 1.548.105 3.029.976 4.061.8.95 1.94 1.345 3.3 1.345 2.334 0 3.628-1.513 3.628-1.513l-.117.734c-.044.281.17.533.452.533h2.36a.762.762 0 0 0 .75-.648l1.417-9.05a.46.46 0 0 0-.452-.53zm-3.654 5.145c-.251 1.51-1.441 2.525-2.957 2.525-.76 0-1.37-.246-1.76-.713-.387-.464-.533-1.123-.41-1.858.237-1.497 1.444-2.544 2.936-2.544.744 0 1.35.25 1.748.72.4.475.56 1.139.443 1.87zM66.929 2.474L64.683 16.89c-.044.279.17.53.45.53h2.258a.761.761 0 0 0 .751-.647l2.215-14.157a.459.459 0 0 0-.45-.532H67.38a.458.458 0 0 0-.45.389" fill="#469BDB"/></g></g></svg>
+                                </label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="frb-fieldset frb-optin" style="display: none;">
+                        <legend class="frb-message">
+                            Only about half of our donors in <span class="frb-replace-countryname">COUNTRY</span> sign up for our emails. If everyone who donates this <span class="frb-replace-dayofweek"></span> opted in, we'd have the support and advice we need for years to come. Can we follow up and let you know if Wikipedia needs your help again?
+                        </legend>
+                        <div class="frb-buttons-wrapper">
+                            <div class="frb-button">
+                                <input class="frb-radio" type="radio" name="opt_in" id="frb-optin-yes" value="1">
+                                <label class="frb-label" for="frb-optin-yes">{{{FR2015_translations,optin-yes}}}</label>
+                            </div>
+                            <div class="frb-button">
+                                <input class="frb-radio" type="radio" name="opt_in" id="frb-optin-no" value="0">
+                                <label class="frb-label" for="frb-optin-no">{{{FR2015_translations,optin-no}}}</label>
+                            </div>
+                        </div>
+                        <p class="frb-message frb-message--typing frb-message--optin is-hidden">
+                            <svg class="type-indicator" width="42" height="10" viewBox="0 0 42 10" xmlns="http://www.w3.org/2000/svg"><title>Type indicator</title><g fill="none" fill-rule="evenodd"><circle class="type-indicator__circle" fill="#B3D1FF" style="/*mix-blend-mode:multiply*/" cx="5" cy="5" r="5"/><circle class="type-indicator__circle" fill="#B3D1FF" style="/*mix-blend-mode:multiply*/" cx="21" cy="5" r="5"/><circle class="type-indicator__circle" fill="#80B3FF" style="/*mix-blend-mode:multiply*/" cx="37" cy="5" r="5"/></g></svg>
+                        </p>
+                        <p class="frb-message is-hidden frb-optin-no-prompt frb-message--optin">
+                            <span class="frb-optin-no-prompt__no">😔 {{{FR2015_translations,optin-we-sorry}}}</span>
+                            <span class="frb-optin-no-prompt__yes">😍 {{{FR2015_translations,optin-thanks-changing}}}</span>
+                        </p>
+                        <p class="frb-optin-legal">{{{FR2015_translations,optin-info-handled}}}</p>
+                    </fieldset>
+
+                    <button id="frb-donate" class="frb-submit" onclick="return false;">
+                        <svg class="frb-icon frb-icon-lock" role="img" aria-labelledby="frb-icon-lock-title" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><title id="frb-icon-lock-title">{{{FR2015_translations,secure-transaction}}}</title><path d="M16.07 8H15V5s0-5-5-5-5 5-5 5v3H3.93A1.93 1.93 0 0 0 2 9.93v8.15A1.93 1.93 0 0 0 3.93 20h12.14A1.93 1.93 0 0 0 18 18.07V9.93A1.93 1.93 0 0 0 16.07 8zM10 16a2 2 0 1 1 2-2 2 2 0 0 1-2 2zm3-8H7V5.5C7 4 7 2 10 2s3 2 3 3.5z"/></svg>
+                        <span class="frb-submit-txt">{{{FR2015_translations,donate}}} <span class="frb-ptf-total"></span> <span class="frb-submit-label-now">{{{FR2015_translations,now}}}</span><span class="frb-submit-label-monthly">{{{FR2015_translations,monthly}}}</span></span>
+                    </button>
+
+                    <div class="frb-error frb-error-smallamount">{{{FR2015_translations,smallamount-error}}}</div>
+                    <div class="frb-error frb-error-bigamount">{{{FR2015_translations,bigamount-error}}}</div>
+                    <div class="frb-error frb-error-method">{{{FR2015_translations,select-payment-method-please}}}</div>
+                    <div class="frb-error frb-error-optin">{{{FR2015_translations,optin-please-select-email-option}}}</div>
+
+                </div><!--frb-step-2-->
+
+                <div class="frb-mask"></div>
+                <div class="frb-step-upsell" style="display: none;">
+                    <button class="frb-back-step">
+                        <svg class="frb-icon frb-icon-back" aria-labelledby="frb-icon-back-title" xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 20 16"><title id="frb-icon-back-title">{{{FR2015_translations,back}}}</title><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><path stroke="#72777D" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.778" d="M7.181 13.285L.753 7 7.181.715"/><rect width="18.182" height="1.778" x=".818" y="6.111" fill="#72777D" rx=".889"/></g></svg>
+                    </button>
+                    <button class="frb-back">
+                        <svg class="frb-icon frb-icon-back" aria-labelledby="frb-icon-back-title" xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 20 16"><title id="frb-icon-back-title">{{{FR2015_translations,back}}}</title><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><path stroke="#72777D" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.778" d="M7.181 13.285L.753 7 7.181.715"/><rect width="18.182" height="1.778" x=".818" y="6.111" fill="#72777D" rx=".889"/></g></svg>
+                    </button>
+
+                    <div class="frb-upsell">
+                        <p class="frb-upsell-cta">{{{FR2015_translations,why-not-make}}}</p>
+                        <p class="frb-upsell-color">{{{FR2015_translations,monthly-best}}}</p>
+                    </div>
+
+                    <div class="frb-monthly-buttons">
+
+                        <button id="frb-monthly-donate-yes" class="frb-submit active" onclick="return false;">
+                            <span class="frb-submit-txt">{{{FR2015_translations,yes-each-month}}}</span>
+                        </button>
+
+                        <button id="frb-monthly-donate-no" class="frb-submit active" onclick="return false;">
+                            <span class="frb-submit-txt">{{{FR2015_translations,no-thanks-one}}}</span>
+                        </button>
+
+                        <button class="frb-monthly-diff-amt-link">{{{FR2015_translations,yes-but-different}}}</button>
+
+                    </div>
+
+                    <div class="frb-monthly-diff-amt">
+                        <p class="frb-upsell-ty">{{{FR2015_translations,thank-you-support}}}</p>
+                        <div class="frb-amt-monthly">
+                            <label for="frb-amt-monthly-other-input">{{{FR2015_translations,enter-monthly-amt}}}</label>
+                            <input name="otherMonthlyAmount" type="text" inputmode="decimal" id="frb-amt-monthly-other-input" size="3" autocomplete="off" value="" />
+                        </div>
+                        <div class="frb-error frb-error-smallamount">{{{FR2015_translations,smallamount-error}}}</div>
+                        <div class="frb-error frb-error-bigamount">{{{FR2015_translations,bigamount-error}}}</div>
+                        <button id="frb-donate-monthly-other" class="frb-submit" onclick="return false;">
+                            <span class="frb-submit-secure-transaction">
+                                <svg class="frb-icon frb-icon-lock" role="img" aria-labelledby="frb-icon-lock-title" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><title id="frb-icon-lock-title">{{{FR2015_translations,secure-transaction}}}</title><path d="M16.07 8H15V5s0-5-5-5-5 5-5 5v3H3.93A1.93 1.93 0 0 0 2 9.93v8.15A1.93 1.93 0 0 0 3.93 20h12.14A1.93 1.93 0 0 0 18 18.07V9.93A1.93 1.93 0 0 0 16.07 8zM10 16a2 2 0 1 1 2-2 2 2 0 0 1-2 2zm3-8H7V5.5C7 4 7 2 10 2s3 2 3 3.5z"/></svg>
+                            </span>
+                            <span class="frb-submit-txt">{{{FR2015_translations,donate}}} <span class="frb-monthly-total"></span> <span class="frb-submit-label-now">{{{FR2015_translations,now}}}</span><span class="frb-submit-label-monthly">{{{FR2015_translations,monthly}}}</span></span>
+                        </button>
+                    </div>
+
+                </div><!--frb-step-upsell-->
+
+            </form><!--frb-form-->
+
+        </div><!--frb-conversation-->
+
+        <div class="frb-footer">
+            <h2 class="frb-visually-hidden">Fundraising legal footer</h2>
+            <a href="https://donate.wikimedia.org/wiki/Special:LandingCheck?basic=true&landing_page=Problems_donating" target="_blank">Problems donating?</a> | <a href="https://wikimediaendowment.org/#contact" target="_blank">Other ways to give</a> | <a href="https://foundation.wikimedia.org/wiki/Special:LandingCheck?basic=true&landing_page=FAQ" target="_blank">Frequently asked questions</a> | We never sell your information. By submitting, you are agreeing to our <a href="https://wikimediafoundation.org/wiki/Special:LandingCheck?basic=true&landing_page=Donor_policy" target="_blank">donor privacy policy</a>. The Wikimedia Foundation is a nonprofit, <a href="https://foundation.wikimedia.org/wiki/Tax_Deductibility/en" target="_blank">tax-exempt organization</a>. The Wikimedia Endowment provides dedicated funding to realize the power and promise of Wikipedia and related Wikimedia projects for the long term. For more information, visit <a href="https://wikimediaendowment.org/" target="_blank">wikimediaendowment.org</a>.
+        </div><!--end frb-footer-->
+        <hr class="frb-separator" />
+
+    </div><!--frb-main-->
+</div><!--end frb-->
+
+<script>
+var frb = frb || {};
+
+frb.show = function() {
+    $('.banner-container').insertBefore('#content');
+    $('.frb').css('display', 'block');
+    $('.frb').addClass('frb-country-' + mw.centralNotice.data.country);
+};
+
+frb.toggleMonthly = function(monthly) {
+    // TODO: why is this so complicated?
+    if( monthly.type === 'checkbox' ) {
+        monthly = monthly.checked;
+    }
+    if ( monthly ) {
+        $('#frb-frequency-monthly').prop("checked", true);
+        $('#frb-monthly-checkbox').prop("checked", true);
+        $('#frb-form').addClass('form-monthly');
+        $('.no-monthly input[type=radio]').attr('disabled', true);
+        $('#frb-form').addClass('form-monthly');
+        if( $( '.form-monthly .no-monthly input[type=radio]' ).is(':checked') ) {
+            $('.form-monthly .no-monthly input[type=radio]').removeAttr('checked');
+            frb.setMethod({});
+        }
+    } else {
+        $('#frb-frequency-onetime').prop("checked", true);
+        $('#frb-monthly-checkbox').prop("checked", false);
+        $('#frb-form').removeClass('form-monthly');
+        $('.no-monthly input[type=radio]').attr('disabled', false);
+        $('.no-monthly').prop('disabled', false);
+    }
+};
+
+{{MediaWiki:FundraisingBanners/LocalizeData-2017.js}}
+{{MediaWiki:FundraisingBanners/CoreJS-2018.js}}
+{{MediaWiki:FundraisingBanners/LocalizeJS-2017.js}}
+frb.noRecurringCountries = ['AU', 'CA', 'GB', 'IE', 'NZ', 'US' ];
+{{MediaWiki:FR2014/Resources/alterImpressionData.js}}
+
+frb.rml = {
+
+    post: function() {
+        /* Create the iframe for the form and use it as the form's target */
+        var frameName = 'remindFrame';
+        var $form = $('#frb-rml-form');
+        if ( $("iframe[name=" + frameName + "]").length === 0 ) {
+            var $iframe = $('<iframe style="display: none;" name="' + frameName + '"></iframe>');
+            $form.attr("target", $iframe.attr("name"));
+            $form.after($iframe);
+        }
+        $form[0].submit();
+    },
+
+    getCurrentDate: function() {
+        /* Get current date in correct format for Silverpop */
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; // January is 0!
+        var yyyy = today.getFullYear();
+
+        if( dd < 10 ) {
+            dd = '0' + dd;
+        }
+        if( mm < 10 ) {
+            mm = '0' + mm;
+        }
+
+        return mm+'/'+dd+'/'+yyyy;
+    },
+
+    init: function() {
+        /* Prep the reminder form */
+
+        var form = document.getElementById('frb-rml-form');
+        if ( !form ) return;
+
+        form.rml_country.value    = mw.centralNotice.data.country;
+        form.rml_language.value   = mw.centralNotice.data.uselang;
+        form.rml_submitDate.value = frb.rml.getCurrentDate();
+        form.rml_segment.value    = Math.floor((Math.random() * 100) + 1);
+
+        $('#frb-rml-submit').click(function() {
+            if ( mw.util.validateEmail( form.Email.value ) ) {
+                frb.rml.post();
+                $('.frb-rml-form, .frb-rml-link').hide();
+                $('.frb-rml-ty').show();
+                mw.centralNotice.internal.hide.setHideWithCloseButtonCookies(); // Hide future banners for 7 days
+                return false;
+            } else {
+                $('#frb-rml-email').addClass('frb-haserror').focus();
+                $('.frb-error-invalidemail').show();
+                return false;
+            }
+        });
+    }
+
+};
+
+$(function() {
+    mw.loader.using(['mediawiki.util']).then(function() {
+        frb.rml.init();
+    });
+});
+
+
+frb.initToolbar = function() {
+    /* --- Code for sticky toolbar --- */
+
+    $(window).scroll(function() {
+        var articleLocation = $('.mw-body').offset().top;
+        var headerContainerHeight = $('.header-container').height();
+        var donateFormLocation = $('.frb-form').offset().top;
+
+        // Handle .frb-header stickyness
+        if ( $(window).scrollTop() >= headerContainerHeight ) {
+            $('.frb-header').addClass('frb-header--sticky');
+            $('.frb-conversation').css('padding-top', $('.frb-header').outerHeight() )
+        } else {
+            $('.frb-header').removeClass('frb-header--sticky');
+            $('.frb-conversation').css('padding-top', 0);
+        }
+
+        // Handle .frb-header visibility
+        if ( $(window).scrollTop() > donateFormLocation && $('.frb-header' ).css('visibility') == 'visible' ) {
+            $('.frb-header').css('visibility', 'hidden');
+        } else if ( $(window).scrollTop() <= donateFormLocation && $('.frb-header' ).css('visibility') == 'hidden' ) {
+            $('.frb-header').css('visibility', 'visible');
+        }
+    });
+
+};
+
+$(function() {
+
+    var language = mw.centralNotice.data.uselang;
+    var country = mw.centralNotice.data.country;
+    var currency = frb.getCurrency(country);
+    var minAmount = frb.amounts.minimums[ currency ];
+    var form = document.getElementById('frb-form');
+    var donateFormLocation;
+
+    frb.initAmountOptions();
+    frb.localizeAmountOptions(frb.amounts.options5, currency, country, language, true);
+    frb.localizeErrors();
+
+    frb.storedOptions = {};
+    frb.extraData = {};
+
+    frb.setMethod = function(options, frequency) {
+        if( frequency === 'no-monthly' ) {
+            $('#frb-frequency-monthly').attr('disabled', true);
+        } else {
+            $('#frb-frequency-monthly').attr('disabled', false);
+        }
+        frb.storedOptions = options; // Default to credit card
+    };
+
+    $('.frb-amounts').on('input change', function() {
+        frb.validateAmount();
+        frb.updateFeeDisplay();
+        if ( frb.optinRequired ) {
+            $('.frb-optin').show();
+        }
+        $('.frb-cta').fadeOut(function() {
+            $('.frb-step-2').fadeIn();
+            $('.frb-footer').fadeIn();
+        });
+    });
+
+    $('.frb-methods').on('change', function() {
+        $('.frb-methods').removeClass('frb-haserror');
+        $('.frb-error-method').hide();
+    });
+
+    // Opt-in interaction
+    $('.frb-optin .frb-radio').on('click', function() {
+        $('.frb-optin').removeClass('frb-haserror');
+        $('.frb-error-optin').hide();
+        if ( $('#frb-optin-no').is(':checked') ) {
+            $('.frb-optin-no-prompt').removeClass('is-positive');
+            if ( !$('.frb-optin-no-prompt').is(':visible') ) {
+                $('.frb-optin .frb-message--typing').show().delay(frbMessageDelay).fadeOut(function() {
+                    $('.frb-optin-no-prompt').fadeIn();
+                });
+            }
+        } else {
+            $('.frb-optin-no-prompt').addClass('is-positive');
+        }
+    });
+
+    /* Scroll to article option */
+    $('.js-close').on('click', function(e) {
+        var articleLocation = $('.mw-body').offset().top;
+        $('html, body').animate({
+            scrollTop: articleLocation
+        }, 600);
+        return false;
+    });
+
+    /* Scroll to donate option */
+    $('.js-donate').on('click', function(e) {
+        donateFormLocation = $('.frb-amounts').offset().top - $('.frb-header').outerHeight();
+        $('html, body').animate({
+            scrollTop: donateFormLocation
+        }, 600);
+        return false;
+    });
+
+    /* Chat animation speed setting, mainly used for RML user interaction. */
+    var frbMessageDelay = 500;
+    var $rmlButtonParent = $('.frb-options');
+
+    /* Remind me later (RML) form */
+    /* Reveal the RML form after clicking 'Donate Later' */
+    $('.js-rml').on('click', function(e) {
+        var rmlLocation = $('.frb-rml-wrapper').offset().top;
+
+        e.stopPropagation();
+        $('.frb-footer').show();
+
+        if ( $(this).parent().parent().hasClass('frb-header') ) {
+            $('html, body').animate({
+                scrollTop: rmlLocation
+            }, 600);
+        }
+
+        if ( $('.frb-rml-form').css('display') === 'none' ) {
+            $('.frb-rml-wrapper .frb-message--typing')
+                .show()
+                .delay(frbMessageDelay)
+                .fadeOut(function () {
+                    $('.frb-rml-form').fadeIn(function () {
+                        $('#frb-rml-email').focus();
+                    });
+                });
+        }
+
+        return false;
+    });
+
+    /* Hide banner and nag after RML submit. */
+    $('.frb-submit-rml').on('click', function(e){
+        if ( mw.util.validateEmail( $('#frb-rml-email').val() ) ) {
+            $('.frb-inline-rml-form').hide();
+            $('.frb').delay(3000).fadeOut(frbMessageDelay, function() {
+                $('.frb').hide();
+            });
+            mw.centralNotice.internal.hide.setHideWithCloseButtonCookies(); // Hide future banners for 7 days
+            return false;
+        }
+    });
+
+    /* Other amount field */
+    $('.frb-button--other').on('click keypress', function(e) {
+        if ( e.which === 13 || e.type === 'click' ) {
+            document.getElementById('frb-input-other').checked = true;
+            frb.updateFeeDisplay();
+            $('.frb-other-input').focus();
+        }
+    });
+
+    /* Other amount field focus styles */
+    $('.frb-other-input')
+        .focus(function() {
+            $('.frb-button--other').addClass('frb-button--is-focused');
+        })
+        .blur(function() {
+            $('.frb-button--other').removeClass('frb-button--is-focused');
+        });
+
+    frb.updateUpsellAsk = function(isOtherAmountStep) {
+        var amount, feeAmount, upsellAmount,
+            list = frb.amounts.monthlySuggest[currency];
+
+        // If user is on third step (write a different amount) then get monthly amount if not, the the first form amount
+        if (isOtherAmountStep !== undefined) {
+            amount = frb.getMonthlyAmount();
+        } else {
+            amount = frb.getAmount(form);
+        }
+
+        // If PTF is checked when we need to calculate the fee for that amount
+        if ( $('#frb-ptf-checkbox').prop('checked') ) {
+            amount = amount + frb.calculateFee(amount);
+        }
+
+        for (var i = list.length - 1; i >= 0; i--) {
+            if ( amount <= list[i][0] ) {
+                upsellAmount = list[i][1];
+            }
+        }
+
+        // If user is in the upsell (second step) then the form.otherMonthlyAmount.value will be updated with the upsellAmount calculated
+        if (isOtherAmountStep === undefined) {
+            form.otherMonthlyAmount.value = upsellAmount;
+        }
+
+        // A formatted value will be returned
+        var upsellAmountFormatted = frb.formatCurrency(currency, upsellAmount, language);
+
+        // The value of the amount will be updated only if the user is in the upsell (second step)
+        if (isOtherAmountStep === undefined) {
+            $('.frb-upsell-ask').text(upsellAmountFormatted);
+        }
+    };
+
+    // Pre-upsell submit button
+    $('#frb-donate').on('click', function(e) {
+        frb.updateUpsellAsk();
+
+        // Only do monthly convert if initial selection is one-time and payment method supports monthly and upsell value is not 0 (meaning skip). If method is CC, use the payments wiki monthly convert variant.
+        if ( frb.getRecurring(document.getElementById('frb-form')) ||
+             !frb.shouldShowRecurring( frb.storedOptions, mw.centralNotice.data.country ) ||
+             form.otherMonthlyAmount.value == 0 ) {
+            frb.submitForm(frb.storedOptions, 1);
+        } else if ( frb.validateForm(frb.storedOptions) ) {
+            if ( frb.storedOptions.method == 'cc' ){
+                frb.setMethod({ method:'cc', variant:'monthlyConvert' });
+                frb.submitForm(frb.storedOptions, 1);
+            } else {
+                $('.frb-step-upsell, .frb-back-step, .frb-mask').fadeIn();
+            }
+        } else {
+            frb.extraData.validateError = 1;
+        }
+        return false;
+    });
+
+    // Go back to main step
+    $('.frb-back-step, .frb-mask').on('click', function(e) {
+        $('.frb-mask, .frb-step-upsell').fadeOut();
+        return false;
+    });
+
+    // Donate monthly other amount
+    $('.frb-monthly-diff-amt-link').on('click', function(e) {
+        form.otherMonthlyAmount.value = '';
+        validAmount = 0;
+        frb.toggleMonthly(true);
+        $('.frb-upsell, .frb-monthly-buttons').hide();
+        $('.frb-monthly-diff-amt, .frb-back').show();
+        return false;
+    });
+
+    // Go back from diff amount
+    $('.frb-back').on('click', function(e) {
+        form.otherMonthlyAmount.value = '';
+        frb.updateUpsellAsk();
+        validAmount = 1;
+        frb.toggleMonthly(false);
+        $('.frb-monthly-diff-amt, .frb-back').hide();
+        $('.frb-upsell, .frb-monthly-buttons').show();
+        return false;
+    });
+
+    // Validate monthly other amount
+    $('#frb-amt-monthly-other-input').on('input change', function(e) {
+        if ( frb.validateMonthlyAmount() ) {
+            validAmount = 1;
+            frb.updateUpsellAsk(true);
+        } else {
+            validAmount = 0;
+        }
+    });
+
+    frb.getMonthlyAmount = function() {
+        var amount = null;
+
+        // Check the "monthly other" amount box
+        if (form.otherMonthlyAmount.value !== '') {
+            var otherMonthlyAmount = form.otherMonthlyAmount.value;
+            otherMonthlyAmount = otherMonthlyAmount.replace(/[,.](\d)$/, ':$10');
+            otherMonthlyAmount = otherMonthlyAmount.replace(/[,.](\d)(\d)$/, ':$1$2');
+            otherMonthlyAmount = otherMonthlyAmount.replace(/[$£€¥,.]/g, '');
+            otherMonthlyAmount = otherMonthlyAmount.replace(/:/, '.');
+            amount = otherMonthlyAmount;
+        }
+
+        amount = parseFloat(amount);
+
+        if ( isNaN(amount) ) {
+            return 0;
+        } else {
+            var totalMonthlyAmountFormatted = frb.formatCurrency(currency, amount, language);
+            $('.frb-monthly-total').text(totalMonthlyAmountFormatted);
+
+            return amount;
+        }
+    };
+
+    frb.validateMonthlyAmount = function() {
+        var amount = frb.getMonthlyAmount();
+        var currency  = frb.getCurrency( mw.centralNotice.data.country );
+        var minAmount = frb.amounts.minimums[ currency ];
+
+        if ( amount === null || isNaN(amount) || amount <= 0 || amount < minAmount ) {
+            $('.frb-error-bigamount').hide();
+            $('.frb-error-smallamount').show();
+            return false;
+        } else if ( amount > frb.maxUSD * minAmount ) {
+            $('.frb-error-bigamount').show();
+            return false;
+        } else {
+            $('.frb-error-smallamount, .frb-error-bigamount').hide();
+            return true;
+        }
+    };
+
+    frb.submitMonthly = function() {
+        frb.extraData.monthlyUpsell = 1;
+        frb.extraData.originalAmt = frb.getAmount().toString();
+
+        frb.toggleMonthly(true);
+        document.getElementById('frb-input-other').checked = true;
+        document.getElementById('frb-ptf-checkbox').checked = false;
+        form.otherAmount.value = form.otherMonthlyAmount.value;
+        frb.submitForm(frb.storedOptions, 1);
+    }
+
+    // Submit form
+    $('#frb-monthly-donate-yes').on('click', function(e) {
+        frb.submitMonthly();
+        return false;
+    });
+
+    $('#frb-monthly-donate-no').on('click', function(e) {
+        frb.submitForm(frb.storedOptions, 1);
+        return false;
+    });
+
+    $('#frb-donate-monthly-other').on('click', function (e) {
+        if (frb.validateMonthlyAmount()) {
+            frb.submitMonthly();
+        }
+        return false;
+    });
+
+    /* Hide banner outside of main namespace (and Main Page, for sites where that isn't in main namespace). */
+    if ( mw.config.get('wgNamespaceNumber') > 0 && !mw.config.get('wgIsMainPage') ) {
+        mw.centralNotice.bannerData.hideResult = true;
+        mw.centralNotice.bannerData.hideReason = 'namespace';
+    }
+    /* Hide banner on desktop site, in case wrong device settings were chosen */
+    if ( mw.config.get('skin') !== 'minerva' ) {
+        mw.centralNotice.bannerData.hideResult = true;
+        mw.centralNotice.bannerData.hideReason = 'other';
+    }
+    /* Hide if local time is into 2020. Commented out for previewing.
+    var currentDate = new Date();
+    if ( currentDate.getFullYear() === 2020 ) {
+        mw.centralNotice.bannerData.hideResult = true;
+        mw.centralNotice.bannerData.hideReason = 'other';
+    }
+    */
+
+    if ( !mw.centralNotice.bannerData.hideResult ) {
+        frb.show();
+        frb.initToolbar();
+    }
+
+    /* Social share tracking via hide banner cookie for enUS campaign experiment */
+    if ( $.cookie("centralnotice_hide_socialshare") != null && country === 'US' ) {
+        frb.extraData.socialShare = 1;
+    }
+
+});
+</script>
